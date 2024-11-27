@@ -1,0 +1,12 @@
+{
+    "language": {
+      "label": "Sprache",
+      "ukrainian": "Ukrainisch",
+      "english": "Englisch",
+      "germany": "Deutsch"
+    },
+    "questions": {
+      "askQuestion": "Eine Frage stellen",
+      "send": "Senden"
+    }
+}

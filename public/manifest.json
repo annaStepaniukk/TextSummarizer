@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "name": "Text Summarizer",
+    "description": "Author: Anna Stepaniuk",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "icons//paper32x32.png",
+        "32": "icons//paper32x32.png",
+        "48": "icons//paper32x32.png",
+        "128": "icons//paper32x32.png"
+    },
+    "permissions": [
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
+}

@@ -8,6 +8,7 @@ import { Language } from './enums/languages';
 import './utils/i18n';
 import Summary from './components/Summary';
 import QuestionsAndAnswers from './components/QuestionsAndAnswers';
+import { translateText } from './api/translation';
 
 function App() {
   const [pageContent, setPageContent] = useState<string>();
@@ -15,9 +16,16 @@ function App() {
 
   const { i18n } = useTranslation();
 
-  const changeLanguage = (language: Language) => {
+  async function changeLanguage(language: Language) {
     i18n.changeLanguage(language);
-  };
+
+    const traslatedSummary = await translateText(
+      i18n.language as Language,
+      language,
+      summary ?? '',
+    );
+    setSummary(traslatedSummary);
+  }
 
   useEffect(() => {
     (async () => {
@@ -46,7 +54,7 @@ function App() {
         <TranslationMenu onLanguageChange={(lang) => changeLanguage(lang)} pageSummary={summary} />
         <Summary summary={summary} />
       </Box>
-      <QuestionsAndAnswers />
+      <QuestionsAndAnswers pageContent={pageContent} />
     </Box>
   );
 }
